@@ -1,0 +1,108 @@
+\mode<presentation>
+
+   \defbeamertemplate*{background canvas}{mydefault}
+    {%
+      \ifbeamercolorempty[bg]{background canvas}{}{\color{Athens}\vrule width\paperwidth height\paperheight}% copied beamer default here
+    }
+
+    \defbeamertemplate*{background canvas}{bgSandstone}
+    {%
+      \color{Sandstone}\vrule width\paperwidth height\paperheight% added bg color
+    }
+
+    \BeforeBeginEnvironment{frame}{%
+      \setbeamertemplate{background canvas}[mydefault]%
+    }
+
+    \makeatletter
+    \define@key{beamerframe}{bgSandstone}[true]{%
+      \setbeamertemplate{background canvas}[bgSandstone]%
+    }
+    \makeatother
+
+% Title page
+\defbeamertemplate*{title page}{areumnara}[1][]
+{ 
+    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,sep=8pt,#1]{title page header}
+    \usebeamerfont{title}\inserttitle\par%
+    \end{beamercolorbox}%
+    \vskip0.75cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,#1]{author}
+      \usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}
+     \vskip0.2cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,#1]{date}
+      \usebeamerfont{author}\insertdate%
+    \end{beamercolorbox}
+  \vfill
+}
+
+\makeatletter
+\newcommand\HUGE{\@setfontsize\Huge{150}{160}}
+\makeatother  
+
+\newcommand{\simple}[2]{
+
+  \begin{frame}
+    \begin{tikzpicture}[remember picture, overlay, every node/.style={anchor=center}]
+    \fill[Rangoon] (0.55\paperwidth,-\paperheight) rectangle (\paperwidth,\the\paperheight);
+    
+    \fill[fill overzoom image=pic1.jpg] (-\paperwidth,-\paperheight) rectangle (0.55\paperwidth,\the\paperheight);
+    \fill[Rangoon, opacity=0.7] (-\paperwidth,-\paperheight) rectangle (0.55\paperwidth,\the\paperheight);
+
+    \node[text width=5cm, align=left, font=\color{Athens}] (title) at (4,0) {\usebeamerfont{frametitle}#1};
+    \node[text width=5cm, align=left, right = 4cm of title, font=\color{Athens}\small] (content) {#2};
+      
+    \end{tikzpicture}
+  \end{frame}
+}
+
+\newcommand{\about}[2]{
+
+  \begin{frame}
+  \begin{tikzpicture}[remember picture, overlay, every node/.style={anchor=center}]
+    \node[text width=5cm, align=left] (a) at (10,1) {\usebeamerfont{frametitle}#1};
+    \node[text width=5cm, align=left, below = 3cm of a, font=\small] (content) {\justifying#2};
+      
+    \end{tikzpicture}
+  \end{frame}
+}
+
+\newcommand{\hello}[3]{
+
+  \begin{frame}
+    \begin{tikzpicture}[remember picture, overlay, every node/.style={anchor=center}]
+
+    \fill[fill overzoom image=pic1.jpg] ($(current page.north west)+(1cm,-1cm)$) rectangle ($(current page.south west)+(3cm,1cm)$);
+    \fill[Athens, opacity=0.7] ($(current page.north west)+(1cm,-1cm)$) rectangle ($(current page.south west)+(3cm,1cm)$);
+
+    % Frame title
+    \node[text width=5cm, align=left, font=\color{Rangoon}] (title) at (6,0) {\usebeamerfont{frametitle}#1};
+    \node[text width=5cm, align=left, font=\color{Rangoon}\Large\bfseries, right = of title] (subtitle) at (8,0) {#2};
+    \node[text width=5cm, align=left, below = 1cm of subtitle, font=\color{Rangoon}\small] (content) {\justifying#3};
+      
+    \end{tikzpicture}
+  \end{frame}
+}
+
+\newcommand{\helloo}[3]{
+
+  \begin{frame}
+    \begin{tikzpicture}[remember picture, overlay, every node/.style={anchor=center}]
+
+    \fill[fill overzoom image=pic1.jpg] ($(current page.south west)+(1cm,3cm)$) rectangle ($(current page.south east)+(-1cm,0.5cm)$);
+    \fill[Athens, opacity=0.7] ($(current page.south west)+(1cm,3cm)$) rectangle ($(current page.south east)+(-1cm,0.5cm)$);
+
+    % Frame title
+    \node[text width=4cm, align=left, font=\color{Rangoon}, anchor=north west] (title) at (0.1, 1) {\usebeamerfont{frametitle}#1};
+
+    \node[text width=3cm, align=left, font=\color{Rangoon}\Large\bfseries, right = 1cm of title] (subtitle) {#2};
+    \node[text width=5cm, align=left, right = 1cm of subtitle, font=\color{Rangoon}\small] (content) {\justifying#3};
+      
+    \end{tikzpicture}
+  \end{frame}
+}
+
+
+\mode
+<all>

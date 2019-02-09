@@ -1,0 +1,14 @@
+\mode<presentation>
+
+% Frame title
+\defbeamertemplate*{frametitle}{areumnara}[1][]
+{
+\vskip2cm%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1.2cm, leftskip=0.7\textwidth]{frametitle}
+  \begin{tikzpicture}[remember picture, overlay, every node/.style={anchor=center}]
+    \node[text width=5cm, align=left] (title) at (2,0) {\usebeamerfont{frametitle}\insertframetitle};
+  \end{tikzpicture}
+  \end{beamercolorbox}
+}
+
+\mode<all>
