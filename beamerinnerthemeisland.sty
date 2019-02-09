@@ -1,41 +1,24 @@
 \mode<presentation>
 
-   \defbeamertemplate*{background canvas}{mydefault}
-    {%
-      \ifbeamercolorempty[bg]{background canvas}{}{\color{LightGrey}\vrule width\paperwidth height\paperheight}% copied beamer default here
-    }
-
-    \defbeamertemplate*{background canvas}{bgTan}
-    {%
-      \color{Tan}\vrule width\paperwidth height\paperheight% added bg color
-    }
-
-    \BeforeBeginEnvironment{frame}{%
-      \setbeamertemplate{background canvas}[mydefault]%
-    }
-
-    \makeatletter
-    \define@key{beamerframe}{bgTan}[true]{%
-      \setbeamertemplate{background canvas}[bgTan]%
-    }
-    \makeatother
-
-% Title page
-\defbeamertemplate*{title page}{areumnara}[1][]
-{ 
-    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,sep=8pt,#1]{title page header}
-    \usebeamerfont{title}\inserttitle\par%
-    \end{beamercolorbox}%
-    \vskip0.75cm%
-    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,#1]{author}
-      \usebeamerfont{author}\insertauthor%
-    \end{beamercolorbox}
-     \vskip0.2cm%
-    \begin{beamercolorbox}[wd=12cm,leftskip=3cm,#1]{date}
-      \usebeamerfont{author}\insertdate%
-    \end{beamercolorbox}
-  \vfill
+\defbeamertemplate*{background canvas}{mydefault}
+{%
+  \ifbeamercolorempty[bg]{background canvas}{}{\color{LightGrey}\vrule width\paperwidth height\paperheight}% copied beamer default here
 }
+
+\defbeamertemplate*{background canvas}{bgTan}
+{%
+  \color{Tan}\vrule width\paperwidth height\paperheight% added bg color
+}
+
+\BeforeBeginEnvironment{frame}{%
+  \setbeamertemplate{background canvas}[mydefault]%
+}
+
+\makeatletter
+\define@key{beamerframe}{bgTan}[true]{%
+  \setbeamertemplate{background canvas}[bgTan]%
+}
+\makeatother
 
 \makeatletter
 \newcommand\HUGE{\@setfontsize\Huge{150}{160}}
@@ -97,7 +80,7 @@
     \node[text width=4cm, align=left, font=\color{DarkGrey}, anchor=north west] (title) at (0.1, 1) {\usebeamerfont{frametitle}#1};
 
     \node[text width=3cm, align=left, font=\color{DarkGrey}\Large\bfseries, right = 1cm of title] (subtitle) {#2};
-    \node[text width=5cm, align=left, right = 1cm of subtitle, font=\color{DarkGrey}\small] (content) {\justifying#3};
+    \node[text width=3.5cm, align=left, right = 1cm of subtitle, font=\color{DarkGrey}\small] (content) {\justifying#3};
       
     \end{tikzpicture}
   \end{frame}
