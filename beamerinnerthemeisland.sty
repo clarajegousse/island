@@ -2,12 +2,12 @@
 
    \defbeamertemplate*{background canvas}{mydefault}
     {%
-      \ifbeamercolorempty[bg]{background canvas}{}{\color{Athens}\vrule width\paperwidth height\paperheight}% copied beamer default here
+      \ifbeamercolorempty[bg]{background canvas}{}{\color{LightGrey}\vrule width\paperwidth height\paperheight}% copied beamer default here
     }
 
-    \defbeamertemplate*{background canvas}{bgSandstone}
+    \defbeamertemplate*{background canvas}{bgTan}
     {%
-      \color{Sandstone}\vrule width\paperwidth height\paperheight% added bg color
+      \color{Tan}\vrule width\paperwidth height\paperheight% added bg color
     }
 
     \BeforeBeginEnvironment{frame}{%
@@ -15,8 +15,8 @@
     }
 
     \makeatletter
-    \define@key{beamerframe}{bgSandstone}[true]{%
-      \setbeamertemplate{background canvas}[bgSandstone]%
+    \define@key{beamerframe}{bgTan}[true]{%
+      \setbeamertemplate{background canvas}[bgTan]%
     }
     \makeatother
 
@@ -45,13 +45,13 @@
 
   \begin{frame}
     \begin{tikzpicture}[remember picture, overlay, every node/.style={anchor=center}]
-    \fill[Rangoon] (0.55\paperwidth,-\paperheight) rectangle (\paperwidth,\the\paperheight);
+    \fill[DarkGrey] (0.55\paperwidth,-\paperheight) rectangle (\paperwidth,\the\paperheight);
     
     \fill[fill overzoom image=pic1.jpg] (-\paperwidth,-\paperheight) rectangle (0.55\paperwidth,\the\paperheight);
-    \fill[Rangoon, opacity=0.7] (-\paperwidth,-\paperheight) rectangle (0.55\paperwidth,\the\paperheight);
+    \fill[DarkGrey, opacity=0.7] (-\paperwidth,-\paperheight) rectangle (0.55\paperwidth,\the\paperheight);
 
-    \node[text width=5cm, align=left, font=\color{Athens}] (title) at (4,0) {\usebeamerfont{frametitle}#1};
-    \node[text width=5cm, align=left, right = 4cm of title, font=\color{Athens}\small] (content) {#2};
+    \node[text width=5cm, align=left, font=\color{LightGrey}] (title) at (4,0) {\usebeamerfont{frametitle}#1};
+    \node[text width=5cm, align=left, right = 4cm of title, font=\color{LightGrey}\small] (content) {#2};
       
     \end{tikzpicture}
   \end{frame}
@@ -74,12 +74,12 @@
     \begin{tikzpicture}[remember picture, overlay, every node/.style={anchor=center}]
 
     \fill[fill overzoom image=pic1.jpg] ($(current page.north west)+(1cm,-1cm)$) rectangle ($(current page.south west)+(3cm,1cm)$);
-    \fill[Athens, opacity=0.7] ($(current page.north west)+(1cm,-1cm)$) rectangle ($(current page.south west)+(3cm,1cm)$);
+    \fill[LightGrey, opacity=0.7] ($(current page.north west)+(1cm,-1cm)$) rectangle ($(current page.south west)+(3cm,1cm)$);
 
     % Frame title
-    \node[text width=5cm, align=left, font=\color{Rangoon}] (title) at (6,0) {\usebeamerfont{frametitle}#1};
-    \node[text width=5cm, align=left, font=\color{Rangoon}\Large\bfseries, right = of title] (subtitle) at (8,0) {#2};
-    \node[text width=5cm, align=left, below = 1cm of subtitle, font=\color{Rangoon}\small] (content) {\justifying#3};
+    \node[text width=5cm, align=left, font=\color{DarkGrey}] (title) at (6,0) {\usebeamerfont{frametitle}#1};
+    \node[text width=5cm, align=left, font=\color{DarkGrey}\Large\bfseries, right = of title] (subtitle) at (8,0) {#2};
+    \node[text width=5cm, align=left, below = 1cm of subtitle, font=\color{DarkGrey}\small] (content) {\justifying#3};
       
     \end{tikzpicture}
   \end{frame}
@@ -91,13 +91,13 @@
     \begin{tikzpicture}[remember picture, overlay, every node/.style={anchor=center}]
 
     \fill[fill overzoom image=pic1.jpg] ($(current page.south west)+(1cm,3cm)$) rectangle ($(current page.south east)+(-1cm,0.5cm)$);
-    \fill[Athens, opacity=0.7] ($(current page.south west)+(1cm,3cm)$) rectangle ($(current page.south east)+(-1cm,0.5cm)$);
+    \fill[LightGrey, opacity=0.7] ($(current page.south west)+(1cm,3cm)$) rectangle ($(current page.south east)+(-1cm,0.5cm)$);
 
     % Frame title
-    \node[text width=4cm, align=left, font=\color{Rangoon}, anchor=north west] (title) at (0.1, 1) {\usebeamerfont{frametitle}#1};
+    \node[text width=4cm, align=left, font=\color{DarkGrey}, anchor=north west] (title) at (0.1, 1) {\usebeamerfont{frametitle}#1};
 
-    \node[text width=3cm, align=left, font=\color{Rangoon}\Large\bfseries, right = 1cm of title] (subtitle) {#2};
-    \node[text width=5cm, align=left, right = 1cm of subtitle, font=\color{Rangoon}\small] (content) {\justifying#3};
+    \node[text width=3cm, align=left, font=\color{DarkGrey}\Large\bfseries, right = 1cm of title] (subtitle) {#2};
+    \node[text width=5cm, align=left, right = 1cm of subtitle, font=\color{DarkGrey}\small] (content) {\justifying#3};
       
     \end{tikzpicture}
   \end{frame}
